@@ -1,0 +1,111 @@
+/* Corralón - estilos propios. Se cargan DESPUÉS de Bootstrap para pisar sus variables. */
+:root {
+  --acero: #1e2b33;
+  --acero-2: #2d4150;
+  --hormigon: #e6e9eb;
+  --linea: #cdd3d7;
+  --senal: #f2b705;
+  --bs-body-font-family: 'Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-body-bg: var(--hormigon);
+  --bs-body-color: #1c262c;
+  --bs-link-color: var(--acero-2);
+  --bs-link-hover-color: var(--acero);
+}
+
+body {
+    background: var(--hormigon);
+    font-size: 1.02rem;
+    background-image: url("https://www.transparenttextures.com/patterns/batthern.png");
+}
+h1, h2, h3, h4, .navbar-brand, .kpi-valor, .modal-title {
+  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  letter-spacing: .01em;
+}
+h1 { font-size: 2.3rem; font-weight: 700; }
+h2 { font-size: 1.6rem; font-weight: 600; }
+
+:focus-visible { outline: 3px solid var(--senal); outline-offset: 2px; }
+
+/*  Barra de navegación   */
+.barra { background: var(--acero); }
+.barra .navbar-brand { color: #fff; font-size: 1.6rem; font-weight: 700; display: flex; align-items: center; gap: .6rem; }
+.barra .navbar-brand .marca { width: 1.05rem; height: 1.05rem; background: var(--senal); display: inline-block; }
+.barra .nav-link { color: #d6dde2; padding: .9rem 1rem; border-bottom: 3px solid transparent; }
+.barra .nav-link:hover { color: #fff; }
+.barra .nav-link.activo { color: #fff; border-bottom-color: var(--senal); }
+.barra .dropdown-menu { border-radius: .25rem; border-color: var(--linea); }
+.barra .dropdown-item.activo { font-weight: 600; background: #fff4cc; color: var(--acero); }
+.barra .usuario { color: #b9c4cb; font-size: .95rem; }
+.barra .navbar-toggler { border-color: #5b6e7a; }
+.barra .navbar-toggler-icon { filter: invert(1); }
+
+/*  Botones  */
+.btn-primary {
+  --bs-btn-bg: var(--acero); --bs-btn-border-color: var(--acero); --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--acero-2); --bs-btn-hover-border-color: var(--acero-2); --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: #121b21; --bs-btn-active-border-color: #121b21;
+  --bs-btn-disabled-bg: var(--acero); --bs-btn-disabled-border-color: var(--acero);
+}
+.btn-senal {
+  --bs-btn-bg: var(--senal); --bs-btn-border-color: var(--senal); --bs-btn-color: var(--acero);
+  --bs-btn-hover-bg: #ffc933; --bs-btn-hover-border-color: #ffc933; --bs-btn-hover-color: var(--acero);
+  --bs-btn-active-bg: #d9a404; --bs-btn-active-border-color: #d9a404; --bs-btn-active-color: var(--acero);
+  font-weight: 600;
+}
+
+/* Paneles y tablas */
+.panel { background: #fff; border: 1px solid var(--linea); border-radius: .3rem; }
+.panel-cuerpo { padding: 1.25rem; }
+.tabla-wrap { overflow-x: auto; }
+.table { --bs-table-bg: transparent; margin-bottom: 0; }
+/* Scroll vertical para listas largas */
+.tabla-scroll { max-height: 65vh; overflow-y: auto; }
+.tabla-scroll thead th { position: sticky; top: 0; z-index: 1; }
+.table thead th {
+  background: var(--acero); color: #fff; font-weight: 500; white-space: nowrap;
+  border-bottom: 0; font-size: .95rem;
+}
+.table td, .table th { vertical-align: middle; }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.vacio { padding: 2.5rem 1rem; text-align: center; color: #5d6b74; }
+.inactivo td { color: #8a959c; }
+
+/*  Dashboard  */
+.kpi { background: #fff; border: 1px solid var(--linea); border-left: 5px solid var(--senal); padding: .9rem 1.1rem; height: 100%; }
+.kpi-valor { font-size: 2.2rem; font-weight: 700; line-height: 1.1; color: var(--acero); }
+.kpi-titulo { color: #5d6b74; font-size: .95rem; }
+.barras { display: flex; align-items: flex-end; gap: 3px; height: 170px; padding-top: .5rem; }
+.barras .barra-dia { flex: 1 1 0; background: var(--acero-2); min-height: 2px; border-radius: 2px 2px 0 0; }
+.barras .barra-dia:hover { background: var(--senal); }
+.barras-eje { display: flex; justify-content: space-between; color: #5d6b74; font-size: .85rem; margin-top: .35rem; }
+
+/*  Portada  */
+.portada h1 { font-size: clamp(2.8rem, 8vw, 5rem); line-height: 1; font-weight: 700; color: var(--acero); }
+.portada .bajada { font-size: 1.2rem; max-width: 38rem; color: #34444e; }
+.portada .dato { border-top: 3px solid var(--acero); padding-top: .6rem; }
+
+/*  Login  */
+.login-caja { max-width: 24rem; margin: 3rem auto; }
+
+/*  Factura  */
+.linea-total { font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700; }
+
+@media (max-width: 575.98px) {
+  h1 { font-size: 1.9rem; }
+  .kpi-valor { font-size: 1.8rem; }
+}
+
+/*  Modales con <form> y scroll  */
+.modal-dialog-scrollable .modal-content > form {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+}
+.modal-dialog-scrollable .modal-content > form .modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
